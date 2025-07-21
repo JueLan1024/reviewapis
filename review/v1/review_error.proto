@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package api.review.v1;
+
+import "errors/errors.proto";
+
+// 多语言特定包名，用于源代码引用
+option go_package = "review-service/api/review/v1;v1";
+option java_multiple_files = true;
+option java_package = "api.review.v1";
+
+enum ErrorReason{
+    // 设置缺省错误码
+    option (errors.default_code) = 500;
+
+    // 为某个枚举单独设置错误码
+    NEED_LOGIN = 0 [(errors.code) = 401];
+    DB_FAILED = 1 [(errors.code) = 500];
+
+    // 订单已评价
+    ORDER_REVIEWED = 100 [(errors.code) = 400];
+    // 订单未评价
+    ORDER_NOT_REVIEWED = 101[(errors.code) = 400];
+    // 评价已回复
+    REVIEW_REPLIED = 102[(errors.code) = 400];
+     // 未发表评价
+    REVIEW_NOT_FOUND = 103[(errors.code) = 404];
+
+    // 水平越权错误
+    HORIZONTAL_PERMISSION_DENIED = 104 [(errors.code) = 403];
+   
+}
+
