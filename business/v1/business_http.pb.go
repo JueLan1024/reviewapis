@@ -28,7 +28,7 @@ type BusinessHTTPServer interface {
 
 func RegisterBusinessHTTPServer(s *http.Server, srv BusinessHTTPServer) {
 	r := s.Route("/")
-	r.POST("business/v1/review/reply", _Business_ReplyReview0_HTTP_Handler(srv))
+	r.POST("b/v1/review/reply", _Business_ReplyReview0_HTTP_Handler(srv))
 }
 
 func _Business_ReplyReview0_HTTP_Handler(srv BusinessHTTPServer) func(ctx http.Context) error {
@@ -67,7 +67,7 @@ func NewBusinessHTTPClient(client *http.Client) BusinessHTTPClient {
 
 func (c *BusinessHTTPClientImpl) ReplyReview(ctx context.Context, in *ReplyReviewRequest, opts ...http.CallOption) (*ReplyReviewReply, error) {
 	var out ReplyReviewReply
-	pattern := "business/v1/review/reply"
+	pattern := "b/v1/review/reply"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationBusinessReplyReview))
 	opts = append(opts, http.PathTemplate(pattern))
