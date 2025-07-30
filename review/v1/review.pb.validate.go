@@ -68,6 +68,17 @@ func (m *CreateReviewRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	if m.GetStoreID() <= 0 {
+		err := CreateReviewRequestValidationError{
+			field:  "StoreID",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
 	if m.GetOrderID() <= 0 {
 		err := CreateReviewRequestValidationError{
 			field:  "OrderID",
@@ -602,6 +613,8 @@ func (m *ReviewInfo) validate(all bool) error {
 	// no validation rules for ReviewID
 
 	// no validation rules for UserID
+
+	// no validation rules for StoreID
 
 	// no validation rules for OrderID
 
