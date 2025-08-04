@@ -28,6 +28,9 @@ enum ErrorReason{
 
     // 水平越权错误
     HORIZONTAL_PERMISSION_DENIED = 104 [(errors.code) = 403];
+
+    // 申述已处理
+    APPEAL_ALREADY_PROCESSED = 105 [(errors.code) = 400];
    
 }
 

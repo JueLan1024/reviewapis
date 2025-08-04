@@ -38,6 +38,8 @@ const (
 	ErrorReason_REVIEW_NOT_FOUND ErrorReason = 103
 	// 水平越权错误
 	ErrorReason_HORIZONTAL_PERMISSION_DENIED ErrorReason = 104
+	// 申述已处理
+	ErrorReason_APPEAL_ALREADY_PROCESSED ErrorReason = 105
 )
 
 // Enum value maps for ErrorReason.
@@ -50,6 +52,7 @@ var (
 		102: "REVIEW_REPLIED",
 		103: "REVIEW_NOT_FOUND",
 		104: "HORIZONTAL_PERMISSION_DENIED",
+		105: "APPEAL_ALREADY_PROCESSED",
 	}
 	ErrorReason_value = map[string]int32{
 		"NEED_LOGIN":                   0,
@@ -59,6 +62,7 @@ var (
 		"REVIEW_REPLIED":               102,
 		"REVIEW_NOT_FOUND":             103,
 		"HORIZONTAL_PERMISSION_DENIED": 104,
+		"APPEAL_ALREADY_PROCESSED":     105,
 	}
 )
 
@@ -93,7 +97,7 @@ var File_api_review_v1_review_error_proto protoreflect.FileDescriptor
 
 const file_api_review_v1_review_error_proto_rawDesc = "" +
 	"\n" +
-	" api/review/v1/review_error.proto\x12\rapi.review.v1\x1a\x13errors/errors.proto*\xd4\x01\n" +
+	" api/review/v1/review_error.proto\x12\rapi.review.v1\x1a\x13errors/errors.proto*\xf8\x01\n" +
 	"\vErrorReason\x12\x14\n" +
 	"\n" +
 	"NEED_LOGIN\x10\x00\x1a\x04\xa8E\x91\x03\x12\x13\n" +
@@ -102,7 +106,8 @@ const file_api_review_v1_review_error_proto_rawDesc = "" +
 	"\x12ORDER_NOT_REVIEWED\x10e\x1a\x04\xa8E\x90\x03\x12\x18\n" +
 	"\x0eREVIEW_REPLIED\x10f\x1a\x04\xa8E\x90\x03\x12\x1a\n" +
 	"\x10REVIEW_NOT_FOUND\x10g\x1a\x04\xa8E\x94\x03\x12&\n" +
-	"\x1cHORIZONTAL_PERMISSION_DENIED\x10h\x1a\x04\xa8E\x93\x03\x1a\x04\xa0E\xf4\x03B2\n" +
+	"\x1cHORIZONTAL_PERMISSION_DENIED\x10h\x1a\x04\xa8E\x93\x03\x12\"\n" +
+	"\x18APPEAL_ALREADY_PROCESSED\x10i\x1a\x04\xa8E\x90\x03\x1a\x04\xa0E\xf4\x03B2\n" +
 	"\rapi.review.v1P\x01Z\x1freview-service/api/review/v1;v1b\x06proto3"
 
 var (

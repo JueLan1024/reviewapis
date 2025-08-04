@@ -106,3 +106,17 @@ func IsHorizontalPermissionDenied(err error) bool {
 func ErrorHorizontalPermissionDenied(format string, args ...interface{}) *errors.Error {
 	return errors.New(403, ErrorReason_HORIZONTAL_PERMISSION_DENIED.String(), fmt.Sprintf(format, args...))
 }
+
+// 申述已处理
+func IsAppealAlreadyProcessed(err error) bool {
+	if err == nil {
+		return false
+	}
+	e := errors.FromError(err)
+	return e.Reason == ErrorReason_APPEAL_ALREADY_PROCESSED.String() && e.Code == 400
+}
+
+// 申述已处理
+func ErrorAppealAlreadyProcessed(format string, args ...interface{}) *errors.Error {
+	return errors.New(400, ErrorReason_APPEAL_ALREADY_PROCESSED.String(), fmt.Sprintf(format, args...))
+}
